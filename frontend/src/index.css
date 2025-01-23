@@ -1,0 +1,194 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+body {
+  margin: 0;
+  font-family: "Open Sans", serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: "Open Sans", serif;
+}
+
+
+
+.navbar {
+  background-color: #333;
+  padding: 10px 20px;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  color: white;
+  font-size: 1.5em;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style-type: none;
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links li {
+  display: inline-block;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1em;
+}
+
+.nav-links button {
+  background-color: #ff5733;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.nav-links button:hover {
+  background-color: #e04e1d;
+}
+
+
+
+
+
+
+
+
+
+/* Welcome.css */
+
+/* Style for the animated text */
+.welcome-text {
+  display: inline-block;
+  font-size: 3rem; /* Default size, responsive in JSX */
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Individual letters */
+.welcome-text span {
+  display: inline-block;
+  transform: translateY(-100vh); /* Start off-screen */
+  animation: drop 0.5s ease-in forwards;
+}
+
+/* Animation timing for each letter */
+.welcome-text span:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.welcome-text span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.welcome-text span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.welcome-text span:nth-child(4) {
+  animation-delay: 0.4s;
+}
+/* Add more nth-child rules for each letter, or generate dynamically */
+
+/* Drop Animation */
+@keyframes drop {
+  0% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+/* Welcome.css */
+.animated-letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(-100px);
+  animation: dropIn 0.2s ease forwards;
+}
+
+@keyframes dropIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+/* Welcome.css */
+:root {
+  --orange-main: #E96C34; /* Main orange */
+  --orange-hover: #cc5a2e; /* Darker orange for hover */
+  --cool-blue-gray: #7a8a9e; /* Cool blue-gray */
+  --cool-blue-hover: #65758a; /* Darker blue-gray for hover */
+  --soft-cream: #fef5f2; /* Soft cream background */
+  --light-gray: #d1d1d1; /* Light gray for borders */
+}
+
+.bg-soft-cream {
+  background-color: var(--soft-cream);
+}
+
+.text-orange-main {
+  color: var(--orange-main);
+}
+
+.text-cool-blue-gray {
+  color: var(--cool-blue-gray);
+}
+
+.animated-letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(-100px);
+  animation: dropIn 0.5s ease forwards;
+}
+
+@keyframes dropIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+button {
+  border: 1px solid var(--light-gray);
+}
+
+button:hover {
+  border: 1px solid var(--light-gray);
+}
+
+
+
+
+/* Add this to your index.css if TailwindCSS doesn't already have these classes */
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
