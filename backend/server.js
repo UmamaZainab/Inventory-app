@@ -15,6 +15,7 @@ app.use(express.json());
 
 const allowedOrigins = [
   'https://inventory-alfu8ky0f-umama-zainabs-projects.vercel.app',
+  'https://inventory-app-five-omega.vercel.app',
   'http://localhost:3000'
 ];
 app.use(cors({
