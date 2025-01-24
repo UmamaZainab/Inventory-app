@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useSearchParams } from "react-router-dom";
 
+
+const API_URL = process.env.REACT_APP_API_URL;
 const ResetPassword = () => {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
@@ -15,7 +17,7 @@ const ResetPassword = () => {
       return;
     }
     try {
-      const response = await axios.post("https://inventory-app-v276.onrender.com/api/auth/reset-password", {
+      const response = await axios.post(`${API_URL}/api/auth/reset-password`, {
         token,
         password,
       });

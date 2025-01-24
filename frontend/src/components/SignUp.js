@@ -3,6 +3,7 @@ import axios from "axios";
 import "../index.css"; // Importing the CSS file for animation
 import backgroundImage from "../img/bg5.webp"; // Adjust the path based on the location of the file
 
+const API_URL = process.env.REACT_APP_API_URL;
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -11,7 +12,7 @@ const Signup = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://inventory-app-v276.onrender.com/api/auth/register", {
+      const response = await axios.post(`${API_URL}/api/auth/register`, {
         email,
         password,
       });

@@ -1,11 +1,12 @@
 import axios from 'axios';
 
-const API_URL = 'https://inventory-app-v276.onrender.com';
+
+const API_URL = process.env.REACT_APP_API_URL;
 
 export const getProducts = async (page = 0, limit = 5) => {
   try {
     const response = await fetch(
-      `https://inventory-app-v276.onrender.com/products?page=${page + 1}&limit=${limit}`
+      `${API_URL}/products?page=${page + 1}&limit=${limit}`
     );
     const data = await response.json();
     return data;  // Ensure this returns an object like { products, totalPages }
@@ -19,7 +20,7 @@ export const getProducts = async (page = 0, limit = 5) => {
 
 export const addProduct = async (formData) => {
   try {
-    const response = await axios.post('https://inventory-app-v276.onrender.com/products', formData, {
+    const response = await axios.post(`${API_URL}/products`, formData, {
       headers: { 'Content-Type': 'multipart/form-data' },
     });
     return response.data;
@@ -61,7 +62,7 @@ export const deleteProduct = async (id) => {
 
 export const getInventoryWorth = async () => {
   try {
-    const response = await fetch('https://inventory-app-v276.onrender.com/inventory-worth');
+    const response = await fetch(`${API_URL}/inventory-worth`);
     const data = await response.json();
     return data;
   } catch (error) {

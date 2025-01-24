@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useSearchParams } from "react-router-dom";
 
+const API_URL = process.env.REACT_APP_API_URL;
 const VerifyEmail = () => {
     const [searchParams] = useSearchParams();
     const [message, setMessage] = useState("");
@@ -14,7 +15,7 @@ const VerifyEmail = () => {
                 return;
             }
             try {
-                const response = await axios.get(`https://inventory-app-v276.onrender.com/api/auth/verify-email?token=${token}`);
+                const response = await axios.get(`${API_URL}/api/auth/verify-email?token=${token}`);
                 setMessage(response.data.message);
             } catch (error) {
                 setMessage(error.response?.data?.message || "Verification failed");

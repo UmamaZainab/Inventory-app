@@ -4,7 +4,7 @@ import axios from "axios";
 import "../index.css"; // Importing the CSS file for animation
 import backgroundImage from "../img/bg5.webp";
 
-
+const API_URL = process.env.REACT_APP_API_URL;
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -17,7 +17,7 @@ const Login = () => {
         setError(''); // Clear previous errors
 
         try {
-            const response = await fetch('https://inventory-app-v276.onrender.com/api/auth/login', {
+            const response = await fetch(`${API_URL}/api/auth/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
