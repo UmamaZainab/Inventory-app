@@ -10,10 +10,28 @@ const productRoutes = require('./routes/productRoutes');
 dotenv.config();
 const app = express();
 app.use(express.json());
+
+
+
+const allowedOrigins = [
+  'https://inventory-app-five-omega.vercel.app',
+  'http://localhost:3000'
+];
 app.use(cors({
-  origin: 'http://localhost:3000', // Update with your frontend's origin
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow PUT requests
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps or Postman)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) === -1) {
+      const msg = 'The CORS policy does not allow access from this origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
+  credentials: true, // If you need to send cookies/auth headers
 }));
+
+
+
 
 
 // Connect to MongoDB
