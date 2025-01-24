@@ -17,7 +17,7 @@ const UpdateProduct = () => {
     const [image, setImage] = useState(null);
     const [successMessage, setSuccessMessage] = useState(''); // For success feedback
     const [errorMessage, setErrorMessage] = useState(''); // For error feedback
-    const API_URL = 'http://localhost:5000';
+    const API_URL = 'https://inventory-app-v276.onrender.com';
 
 
     useEffect(() => {

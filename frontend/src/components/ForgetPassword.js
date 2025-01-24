@@ -10,7 +10,7 @@ const ForgotPassword = () => {
     const handleForgotPassword = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://localhost:5000/api/auth/forgot-password", { email });
+            const response = await axios.post("https://inventory-app-v276.onrender.com/api/auth/forgot-password", { email });
             setMessage(response.data.message);
         } catch (error) {
             setMessage(error.response?.data?.message || "Error sending reset link");
