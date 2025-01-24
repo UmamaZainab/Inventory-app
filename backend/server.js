@@ -14,20 +14,19 @@ app.use(express.json());
 
 
 const allowedOrigins = [
-  'https://inventory-app-five-omega.vercel.app',
+  'https://inventory-alfu8ky0f-umama-zainabs-projects.vercel.app',
   'http://localhost:3000'
 ];
 app.use(cors({
   origin: (origin, callback) => {
-    // Allow requests with no origin (like mobile apps or Postman)
-    if (!origin) return callback(null, true);
+    if (!origin) return callback(null, true); // Allow requests with no origin
     if (allowedOrigins.indexOf(origin) === -1) {
-      const msg = 'The CORS policy does not allow access from this origin.';
+      const msg = 'CORS policy does not allow access from this origin.';
       return callback(new Error(msg), false);
     }
     return callback(null, true);
   },
-  credentials: true, // If you need to send cookies/auth headers
+  credentials: true, // Allow cookies and auth headers
 }));
 
 
